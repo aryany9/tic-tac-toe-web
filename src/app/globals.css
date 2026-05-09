@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --panel-bg: #ffffff;
+  --panel-muted-bg: #f1f5f9;
+  --panel-hover-bg: #e2e8f0;
+  --border-color: #cbd5e1;
+  --accent-color: #2563eb;
+  --x-color: #2563eb;
+  --o-color: #e11d48;
+  --win-bg: #dcfce7;
+  --win-ring: #16a34a;
+}
+
+html[data-theme='dark'] {
+  --background: #020617;
+  --foreground: #e2e8f0;
+  --panel-bg: #0f172a;
+  --panel-muted-bg: #1e293b;
+  --panel-hover-bg: #334155;
+  --border-color: #475569;
+  --accent-color: #60a5fa;
+  --x-color: #60a5fa;
+  --o-color: #fb7185;
+  --win-bg: #064e3b;
+  --win-ring: #34d399;
+}
+
+html[data-theme='cyberpunk'] {
+  --background: #09090f;
+  --foreground: #f4f4f5;
+  --panel-bg: #121229;
+  --panel-muted-bg: #1c1c37;
+  --panel-hover-bg: #2a2a4f;
+  --border-color: #5b21b6;
+  --accent-color: #facc15;
+  --x-color: #22d3ee;
+  --o-color: #f472b6;
+  --win-bg: #083344;
+  --win-ring: #facc15;
+}
+
+html[data-theme='retro'] {
+  --background: #f6edd9;
+  --foreground: #3f2d1f;
+  --panel-bg: #fff7e6;
+  --panel-muted-bg: #efe0c3;
+  --panel-hover-bg: #e5d0ab;
+  --border-color: #a16207;
+  --accent-color: #15803d;
+  --x-color: #0f766e;
+  --o-color: #b91c1c;
+  --win-bg: #d9f99d;
+  --win-ring: #4d7c0f;
+}
+
+html[data-theme='pastel'] {
+  --background: #f8f4ff;
+  --foreground: #4c1d95;
+  --panel-bg: #ffffff;
+  --panel-muted-bg: #f3e8ff;
+  --panel-hover-bg: #e9d5ff;
+  --border-color: #c4b5fd;
+  --accent-color: #7c3aed;
+  --x-color: #2563eb;
+  --o-color: #db2777;
+  --win-bg: #ede9fe;
+  --win-ring: #8b5cf6;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@keyframes win-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--win-ring) 15%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--win-ring) 25%, transparent);
+  }
+}
+
+@keyframes draw-shake {
+  10%,
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(4px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-6px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
+.animate-win-pulse {
+  animation: win-pulse 1.3s ease-in-out infinite;
+}
+
+.animate-draw-shake {
+  animation: draw-shake 0.45s ease-in-out;
+}
